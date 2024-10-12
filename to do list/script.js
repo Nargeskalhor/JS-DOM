@@ -1,25 +1,24 @@
 "use strict";
-const text = document.querySelector(".text");
+const inputText = document.querySelector(".inputText");
 const addTask = document.querySelector(".addTask");
 const cearlAll = document.querySelector(".cearlAll");
-
+const task = document.querySelector(".task");
 addTask.addEventListener("click", function () {
-  const text = text.value.trim();
+  const text = "";
+  if (text === "") {
+    alert = "Please enter a task";
+  } else {
+    const ul = document.querySelector(".task");
+    ul.textContent = text;
+    const remove = document.querySelector(".button");
+    remove.textContent = "delete";
+    inputText.value = "";
+
+    remove.addEventListener("click", function () {
+      task.remove(ul);
+    });
+  }
 });
-if (text === "") {
-  alert = "Please enter a task";
-} else {
-  const task = document.querySelector(".task");
-  task.textContent = text;
-
-  const remove = document.querySelector(".button");
-  cearlAll.textContent = "delete";
-  remove.classList.add("remove");
-  task.append(remove);
-  task.append(li);
-  text.value = "";
-
-  cearlAll.addEventListener("click", function () {
-    task.remove(li);
-  });
-}
+cearlAll.addEventListener("click", function () {
+  task.innerHTML = "";
+});
